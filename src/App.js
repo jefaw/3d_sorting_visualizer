@@ -7,14 +7,14 @@ import "./App.css";
 class App extends Component {
     state = {
         array: [],
-        arraySteps: [],
+        arraySteps: [], //save copy of each array as it becomes sorted 
         colorKey: [],
         colorSteps: [],
         currentStep: 0,
         count: 10,
         delay: 100,
-        algorithm: '',
-        timeouts: [],
+        algorithm: '', 
+        timeouts: [], 
 
     };
     componentDidMount() {//runs after component mounted
@@ -29,23 +29,35 @@ class App extends Component {
         const temp = [];
 
         for (let i = 0; i < count; i++) {
-            temp.push(this.generateRandomNumber(20, 100));
+            temp.push(this.generateRandomNumber(50, 200));
         }
         console.log(temp);
+
         this.setState({
             array: temp,
-            arraySteps: [temp]
+            arraySteps: [temp] 
         })
     };
     render() {
         let bars = this.state.array.map((value, index) => {
             return (
-                <Bar key={index} index={index} length={value} color={this.state.colorKey[index]} />
+                <Bar 
+                    key={index} 
+                    index={index} 
+                    length={value} 
+                    color={0} 
+                />
             );
         })
         return (
             <div className="App">
-                {bars}
+                <div className="frame">
+                    <div className="barsDiv container card">
+                        {bars}
+                    </div>
+                </div>
+                <div className="control-panel"></div>
+                <div className="panel"></div>
             </div>
         );
     }
