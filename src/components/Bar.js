@@ -1,9 +1,13 @@
 import './Bar.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Bar({index, length, color}) {
+function Bar({index, length, color, changeArray}) {
 
     const [len, setLen] = useState(length)
+    useEffect(() => {
+        setLen(length);
+    }, [length])
+
     const colors = [
         ['rgba(61, 99, 241, 0.5)', 'rgba(61, 99, 241, 0.2)'], //blue
         ['rgba(255, 48, 79, 1)', 'rgba(255, 48, 79, 0.5)'], //red
@@ -40,22 +44,36 @@ function Bar({index, length, color}) {
         position: 'relative',
         top: 220
     }
+    // changes the value of each bar (array value). Max: 200
     const handleChange = (e) =>{
         let val = e.target.value;
         if (val === ''){
             setLen(0)
+            changeArray(index, 0)
         }
         else{
             val = parseInt(val)
             if (val > 200){
                 setLen(200)
+                changeArray(index, 200) 
             }
             else{
                 setLen(val)
+                changeArray(index, val)
             }
         }
-        setLen(parseInt(e.target.value));
     }
+    
+    const increment = (e) => {
+        setLen(len + 1)
+        changeArray(index, len)
+    }
+    
+    const decrement = (e) => {
+        setLen(len - 1)
+        changeArray(index, len)
+    }
+
     return (
         <> 
             <div className="bar">
@@ -83,10 +101,10 @@ function Bar({index, length, color}) {
                       <div className="color-bar back-color-bar"style={front_back_right_left}></div>
                   </div> 
                   <div className="quantity-nav">
-                      <div className="quantity-button quantity-up" style={quantity}>
+                      <div className="quantity-button quantity-up" style={quantity} onClick={increment}>
                           +
                       </div>
-                      <div className="quantity-button quantity-down" style={quantity}>
+                      <div className="quantity-button quantity-down" style={quantity} onClick={decrement}>
                           -
                       </div>
                   </div>

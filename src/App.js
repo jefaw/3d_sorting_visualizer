@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Bar from './components/Bar.js';
+// Icons
+import Play from '@material-ui/icons/PlayCircleOutlineRounded';
+import Forward from '@material-ui/icons/SkipNextRounded';
+import Backward from '@material-ui/icons/SkipPreviousRounded';
+import RotateLeft from "@material-ui/icons/RotateLeft";
 
 //css
 import "./App.css";
@@ -35,9 +40,28 @@ class App extends Component {
 
         this.setState({
             array: temp,
-            arraySteps: [temp] 
+            arraySteps: [temp],
+            currentStep: 0
         })
     };
+
+    generateSteps = () => {
+        let arr = this.state.array.slice();
+        let steps = this.state.arraySteps.slice();
+        let colorSteps = this.colorSteps.slice();
+        
+    }
+
+    changeArray = (index, value) =>{
+        let arr = this.state.array;
+        arr[index] = value;
+        this.setState({
+            array: arr,
+            arraySteps: [arr],
+            currentStep: 0
+        })
+    }
+
     render() {
         let bars = this.state.array.map((value, index) => {
             return (
@@ -46,9 +70,25 @@ class App extends Component {
                     index={index} 
                     length={value} 
                     color={0} 
+                    changeArray={this.changeArray}
                 />
-            );
-        })
+            )
+        });
+        let playButton;
+        if (this.state.arraySteps.length === this.state.currentStep){ //on last step
+            playButton = (
+                <button className="controller">
+                    <RotateLeft />
+                </button>
+            )
+        }
+        else{
+            playButton = (
+                <button className="controller">
+                    <Play />
+                </button>
+            )
+        }
         return (
             <div className="App">
                 <div className="frame">
@@ -56,11 +96,18 @@ class App extends Component {
                         {bars}
                     </div>
                 </div>
-                <div className="control-panel"></div>
+                <div className="control-panel">
+                    
+                    <div className="control-buttons">
+                        <button className="controller"> <Backward /> </button>
+                        {playButton}
+                        <button className="controller"><Forward /> </button>
+                    </div>
+                </div>
                 <div className="panel"></div>
             </div>
         );
     }
-}
+} 
 
 export default App;

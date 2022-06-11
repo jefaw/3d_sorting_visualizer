@@ -23,3 +23,36 @@
   padding: 0 2em;
   background-color: #d98383;
 }
+
+.controller {
+  align-items: center;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  margin: 0 1em;
+  width: 3em;
+}
+
+.control-buttons{
+  align-items: center;
+  background-color: #d98383;
+  border-radius: 2em;
+  display: flex;
+  height: 4em;
+  justify-content: center;
+  width: 15em;
+  
+}
+
+.control-panel{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.panel{
+
+}
