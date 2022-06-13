@@ -11,7 +11,8 @@ function Bar({index, length, color, changeArray}) {
     const colors = [
         ['rgba(61, 99, 241, 0.5)', 'rgba(61, 99, 241, 0.2)'], //blue
         ['rgba(255, 48, 79, 1)', 'rgba(255, 48, 79, 0.5)'], //red
-        ['rgba(133, 232, 90, 1)', 'rgba(133, 232, 90, 0.2)'], //green
+        ['rgba(133, 232, 90, 0.5)', 'rgba(133, 232, 90, 0.2)'], //green
+        ['rgba(235, 132, 19, 0.5)', 'rgba(235, 132, 19, 0.2)']
 
     ];
 

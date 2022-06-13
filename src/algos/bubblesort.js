@@ -1,7 +1,7 @@
 import { swap } from "./helpers";
 
 const bs = (array, pos, arraySteps, colorSteps) => {
-    let colorKey = colorSteps[colorSteps.length-1].slice();
+    let colorKey = colorSteps[colorSteps.length-1].slice(); //get current colourkey array
 
     for (let i = 0; i<array.length -1; i++){
         for (let j = 0; j<array.length -i -1; j++){
@@ -9,6 +9,8 @@ const bs = (array, pos, arraySteps, colorSteps) => {
                 array = swap(array, j, j+1);
             }
             arraySteps.push(array.slice());
+
+            //change colours of the bars being compared to red then reset them back to blue
             colorKey[j] = 1;
             colorKey[j+1] = 1;
             colorSteps.push(colorKey.slice());
