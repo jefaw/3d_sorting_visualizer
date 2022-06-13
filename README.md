@@ -1,4 +1,4 @@
-# 3D sorting visualizer
+# 3D Array Sorting Visualizer
 
 ### Currently features:
 - Playthrough and replay of sorting
@@ -7,9 +7,9 @@
 
 ### Algorithms implemented:
 - Bubble Sort
+- Insertion Sort
 
 
 
 
-
-`Made following Ashwin Athappan`
+`Adapted from Ashwin Athappan`
