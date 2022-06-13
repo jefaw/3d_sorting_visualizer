@@ -8,6 +8,7 @@
 ### Algorithms implemented:
 - Bubble Sort
 - Insertion Sort
+- Selection Sort
 
 
 

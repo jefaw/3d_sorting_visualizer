@@ -4,6 +4,7 @@ import Bar from './components/Bar.js';
 //algorithms
 import BubbleSort from "./algos/bubblesort";
 import InsertionSort from "./algos/insertionsort.js";
+import SelectionSort from "./algos/selectionsort.js"
 
 // Icons
 import Play from '@material-ui/icons/PlayCircleOutlineRounded';
@@ -22,14 +23,15 @@ class App extends Component {
         colorSteps: [],
         currentStep: 0,
         count: 15,
-        delay: 520,
-        algorithm: 'Insertion Sort', 
+        delay: 220,
+        algorithm: 'Selection Sort', 
         timeouts: [], 
 
     };
     ALGORITHMS = {
         'Bubble Sort' : BubbleSort,
         'Insertion Sort': InsertionSort,
+        'Selection Sort': SelectionSort,
     }
 
     componentDidMount() {//runs after component mounted
