@@ -9,6 +9,7 @@
 - Bubble Sort
 - Insertion Sort
 - Selection Sort
+- Merge Sort (unfinished)
 
 
 

@@ -1,4 +1,3 @@
-import { colors } from "@material-ui/core";
 import { swap } from "./helpers"
 const selectionsort = (array, pos, arraySteps, colorSteps) => {
     let colorKey = colorSteps[colorSteps.length-1].slice(); //get current colourkey array

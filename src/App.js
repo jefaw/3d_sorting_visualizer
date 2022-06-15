@@ -4,7 +4,8 @@ import Bar from './components/Bar.js';
 //algorithms
 import BubbleSort from "./algos/bubblesort";
 import InsertionSort from "./algos/insertionsort.js";
-import SelectionSort from "./algos/selectionsort.js"
+import SelectionSort from "./algos/selectionsort.js";
+import MergeSort from "./algos/mergesort";
 
 // Icons
 import Play from '@material-ui/icons/PlayCircleOutlineRounded';
@@ -23,8 +24,8 @@ class App extends Component {
         colorSteps: [],
         currentStep: 0,
         count: 15,
-        delay: 220,
-        algorithm: 'Selection Sort', 
+        delay: 520,
+        algorithm: 'Merge Sort', 
         timeouts: [], 
 
     };
@@ -32,6 +33,7 @@ class App extends Component {
         'Bubble Sort' : BubbleSort,
         'Insertion Sort': InsertionSort,
         'Selection Sort': SelectionSort,
+        'Merge Sort': MergeSort,
     }
 
     componentDidMount() {//runs after component mounted
@@ -153,7 +155,7 @@ class App extends Component {
         });
     };
 
-    
+    MergeSort;
 
     render() {
         let bars = this.state.array.map((value, index) => {
